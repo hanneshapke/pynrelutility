@@ -36,7 +36,7 @@ or download the source from https://github.com/hanneshapke/pynrelutility and ins
 
     python setup.py install
 
-Also obtain a (free API key)[https://developer.nrel.gov/signup] from NREL. 
+Also obtain a [free API key](https://developer.nrel.gov/signup) from NREL. 
 
 
 Usage of the NREL Census Utility  API
