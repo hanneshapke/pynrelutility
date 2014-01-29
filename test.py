@@ -54,7 +54,7 @@ class Test(unittest.TestCase):
         result = NRELUtilityResults(nrel_response) 
 
         self.assertEqual(result.utility_name, 'Seattle City Light')
-        self.assertEqual(result.utility_name_list, ['Seattle City Light'])
+        self.assertEqual(result.utility_list, [['Seattle City Light', '16868']])
         self.assertEqual(result.commercial, float('0.0661'))
         self.assertEqual(result.industrial, float('0.0573'))
         self.assertEqual(result.residential, float('0.076'))

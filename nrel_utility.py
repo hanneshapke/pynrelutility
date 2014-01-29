@@ -82,7 +82,6 @@ class NRELUtilityResults(object):
         """
         Creates instance of GeocoderResult from the provided JSON data array
         """
-        print data
         self.data = data
         self.len = len(self.data)
         self.current_data = self.data
@@ -130,15 +129,15 @@ class NRELUtilityResults(object):
         return self.current_data['outputs']['utility_name']
 
     @property
-    def utility_name_list(self):
+    def utility_list(self):
         """
-        Returns the name of the utilities as a python list
+        Returns the name and company ids of the utilities as a python list
         """
         utility_list = []
         json_attribute = self.current_data['outputs']['utility_info']
 
         for item in json_attribute:
-            utility_list.append(item['utility_name'])
+            utility_list.append([item['utility_name'], item['company_id']])
         return utility_list
 
     @property
