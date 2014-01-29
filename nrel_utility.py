@@ -129,6 +129,20 @@ class NRELUtilityResults(object):
         return self.current_data['outputs']['utility_name']
 
     @property
+    def address(self):
+        """
+        Returns the address of the NREL request
+        """
+        return self.current_data['inputs']['address']
+
+    @property
+    def zipcode(self):
+        """
+        Returns the zipcode of the NREL request
+        """
+        return self.current_data['inputs']['address'][-5:]    
+
+    @property
     def utility_list(self):
         """
         Returns the name and company ids of the utilities as a python list
