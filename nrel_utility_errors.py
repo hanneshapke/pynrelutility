@@ -12,7 +12,7 @@ class NRELError(Exception):
         self.message = message
 
     def __unicode__(self):
-        return unicode(repr(self.message))
+        return self.message
 
     if sys.version_info[0] >= 3:  # Python 3
         def __str__(self):
