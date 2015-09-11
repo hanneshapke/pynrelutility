@@ -63,18 +63,18 @@ The following attributes are currently supported:
 Contributors
 ------------
 
-Hannes Hapke <hannes.hapke@gmail.com>
-Alvaro Feito <alvaro@renooble.com>
-Miguel Paolino <miguel@renooble.com>
-Aleck Landgraf <aleck.landgraf@buildingenergy.com>
+- Hannes Hapke <hannes.hapke@gmail.com>
+- Alvaro Feito <alvaro@renooble.com>
+- Miguel Paolino <miguel@renooble.com>
+- Aleck Landgraf <aleck.landgraf@buildingenergy.com>
 
 
 Contact Information
 -------------------
 
-Author: Hannes Hapke (renooble)
-Twitter: @hanneshapke
-Internet: https://github.com/hanneshapke/
+- Author: Hannes Hapke (renooble)
+- Twitter: @hanneshapke
+- Internet: https://github.com/hanneshapke/
 
 For comments, issues, requests, please contact via Github at the above website
 
