@@ -2,15 +2,14 @@ class NRELError(Exception):
     """
     """
 
-    def __init__(self, status):
+    def __init__(self, message):
         """
-
         """
-        Exception.__init__(self, message)        
+        Exception.__init__(self, message)
         self.message = message
 
     def __str__(self):
-        return repr(self.message) 
+        return repr(self.message)
 
     def __unicode__(self):
         return unicode(self.__str__())

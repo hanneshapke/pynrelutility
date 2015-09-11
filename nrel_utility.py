@@ -1,15 +1,10 @@
 import requests
 import sys
-from requests.exceptions import (ConnectionError, TooManyRedirects, 
-                                Timeout, HTTPError)
+from requests.exceptions import (
+    ConnectionError, Timeout, TooManyRedirects, HTTPError
+)
 
-try:
-    import json
-except ImportError:
-    import simplejson as json
-
-
-from nrel_utility_errors import NRELFail, NRELNoResults
+from nrel_utility_errors import NRELFail, NRELNoResults, NRELError
 from __version__ import VERSION
 
 
@@ -32,7 +27,7 @@ class NRELUtilityWrapper(object):
         params = {
             'format': 'json',
             'address': address,
-            'api_key': self.api_key 
+            'api_key': self.api_key
             }
         return self.get_data(url, params)
 
@@ -42,10 +37,10 @@ class NRELUtilityWrapper(object):
 
         try:
             request = requests.get(
-                url = url,
-                params = params,
-                headers = {
-                    'User-Agent': 'NREL Utility Wrapper/' + VERSION + ' (Python)'
+                url=url,
+                params=params,
+                headers={
+                    'User-Agent': 'NREL Utility Wrapper/'+VERSION+' (Python)'
                 })
             print request.url
         except (ConnectionError, TooManyRedirects, Timeout):
@@ -59,11 +54,11 @@ class NRELUtilityWrapper(object):
         try:
             response_json = request.json()
         except ValueError:
-            print "NREL utility data is not a valid json structure" # (%s)" % (params['address'])
+            print "NREL utility data is not a valid json structure"
             raise NRELFail
 
         if not response_json:
-            print "NREL utility API did not return any results" # (%s)" % (params['address'])
+            print "NREL utility API did not return any results"
             raise NRELNoResults
 
         if response_json['errors']:
@@ -122,8 +117,8 @@ class NRELUtilityResults(object):
     @property
     def utility_name(self):
         """
-        Returns the name of the utilities 
-        (From NREL: If there are multiple utility companies serving the 
+        Returns the name of the utilities
+        (From NREL: If there are multiple utility companies serving the
         location, the names will be returned as a pipe-delimited string.)
         """
         return self.current_data['outputs']['utility_name']
@@ -140,7 +135,7 @@ class NRELUtilityResults(object):
         """
         Returns the zipcode of the NREL request
         """
-        return self.current_data['inputs']['address'][-5:]    
+        return self.current_data['inputs']['address'][-5:]
 
     @property
     def utility_list(self):
@@ -163,16 +158,13 @@ class NRELUtilityResults(object):
     @property
     def commercial(self):
         """
-        
+
         """
         return self.current_data['outputs']['commercial']
 
     @property
     def industrial(self):
         """
-        
+
         """
         return self.current_data['outputs']['industrial']
-
-
-
