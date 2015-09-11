@@ -7,10 +7,10 @@ Hannes Hapke
 
 README
 ------
-This is a Python wrapper for NREL's utility API. 
+This is a Python wrapper for NREL's utility API.
 
 It allows you to directly convert an address into
-utility information (utility name, residential, 
+utility information (utility name, residential,
 commercial and industrial electricity costs).
 
 License
@@ -19,11 +19,9 @@ MIT
 
 Dependencies
 ------------
-It has dependency on the json package, included with Python versions 2.7 and later.
-requests library is also needed and will be installed by setuptools.
+requests library is needed and will be installed by setuptools.
 
-It is developed on Python 2.7 but should work on earlier versions. 
-Not tested if it is also compatible with Python 3. Sorry.
+It is developed on Python 2.7 and tested with Python 3.4.
 
 
 Installation
@@ -36,7 +34,7 @@ or download the source from https://github.com/hanneshapke/pynrelutility and ins
 
     python setup.py install
 
-Also obtain a [free API key](https://developer.nrel.gov/signup) from NREL. 
+Also obtain a [free API key](https://developer.nrel.gov/signup) from NREL.
 
 
 Usage of the NREL Census Utility  API
@@ -48,7 +46,7 @@ Usage of the NREL Census Utility  API
     ...
     nrel_data = NRELUtilityWrapper(YOUR_NREL_API_KEY)
     nrel_response = nrel_data.get_nrel_utility_data(address)
-    result = NRELUtilityResults(nrel_response) 
+    result = NRELUtilityResults(nrel_response)
     ...
     result.utility_name # displays the names of all utilities at the location
 
@@ -65,7 +63,7 @@ Contact Information
 -------------------
 Author: Hannes Hapke (renooble)
 Twitter: @hanneshapke
-Internet: https://github.com/hanneshapke/ 
+Internet: https://github.com/hanneshapke/
 
 For comments, issues, requests, please contact via Github at the above website
 
