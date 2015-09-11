@@ -2,7 +2,7 @@
 NREL Utility Wrapper 0.1
 ==================
 Hannes Hapke
-21/01/2014
+10/09/2015
 
 
 README
@@ -19,13 +19,14 @@ MIT
 
 Dependencies
 ------------
-requests library is needed and will be installed by setuptools.
 
+requests library is needed and will be installed by setuptools.
 It is developed on Python 2.7 and tested with Python 3.4.
 
 
 Installation
 ------------
+
 You can install this package using pip:
 
     pip install pynrelutility
@@ -59,8 +60,18 @@ The following attributes are currently supported:
     - industrial
 
 
+Contributors
+------------
+
+Hannes Hapke <hannes.hapke@gmail.com>
+Alvaro Feito <alvaro@renooble.com>
+Miguel Paolino <miguel@renooble.com>
+Aleck Landgraf <aleck.landgraf@buildingenergy.com>
+
+
 Contact Information
 -------------------
+
 Author: Hannes Hapke (renooble)
 Twitter: @hanneshapke
 Internet: https://github.com/hanneshapke/
@@ -70,6 +81,7 @@ For comments, issues, requests, please contact via Github at the above website
 
 Changelog
 ---------
+
 Version 0.1   > Project created, test.py and setup.py created
 
 
