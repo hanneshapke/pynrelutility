@@ -1,7 +1,10 @@
 import requests
 import sys
 from requests.exceptions import (
-    ConnectionError, Timeout, TooManyRedirects, HTTPError
+    ConnectionError,
+    TooManyRedirects,
+    Timeout,
+    HTTPError,
 )
 
 from nrel_utility_errors import NRELFail, NRELNoResults, NRELError
@@ -28,20 +31,21 @@ class NRELUtilityWrapper(object):
             'format': 'json',
             'address': address,
             'api_key': self.api_key
-            }
+        }
         return self.get_data(url, params)
 
     def get_data(self, url, params):
-        """
-        """
+        """"""
 
         try:
+            headers = {
+                'User-Agent': 'NREL Utility Wrapper/' + VERSION + ' (Python)'
+            }
             request = requests.get(
                 url=url,
                 params=params,
-                headers={
-                    'User-Agent': 'NREL Utility Wrapper/'+VERSION+' (Python)'
-                })
+                headers=headers,
+            )
             print request.url
         except (ConnectionError, TooManyRedirects, Timeout):
             raise NRELFail
@@ -95,7 +99,7 @@ class NRELUtilityResults(object):
         return self
 
     def __unicode__(self):
-        return self.zillow_id
+        return self.utility_name
 
     if sys.version_info[0] >= 3:  # Python 3
         def __str__(self):
