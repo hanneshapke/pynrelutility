@@ -14,12 +14,12 @@ Unit tests for pynrelutility.
 
 import unittest
 import json
-from nrel_utility import NRELUtilityWrapper, NRELUtilityResults 
+from nrel_utility import NRELUtilityWrapper, NRELUtilityResults
 
-NREL_API_KEY = 'DEMO_KEY' 
+NREL_API_KEY = 'DEMO_KEY'
 
 MOCK_DATA_NREL_RESPONSE = """
-{"inputs":{"address":"2114 Bigelow Ave Seattle, WA, 98109"},"errors":[],"warnings":[],"version":"3.0.3","metadata":{"sources":["Ventyx Research (2011)","EIA (2011)"]},"outputs":{"company_id":"16868","utility_name":"Seattle City Light","utility_info":[{"company_id":"16868","utility_name":"Seattle City Light"}],"commercial":0.0661,"industrial":0.0573,"residential":0.076}}"""
+{"inputs": {"address": "2114 Bigelow Ave Seattle, WA, 98109"}, "errors": [], "warnings": [], "outputs": {"industrial": 0.0595, "residential": 0.0775, "utility_info": [{"company_id": "16868", "utility_name": "Seattle City Light"}], "commercial": 0.068, "company_id": "16868", "utility_name": "Seattle City Light"}, "version": "3.1.0", "metadata": {"sources": ["Ventyx Research (2012)"]}}"""
 
 
 class Test(unittest.TestCase):
@@ -51,15 +51,16 @@ class Test(unittest.TestCase):
 
         nrel_data = NRELUtilityWrapper(NREL_API_KEY)
         nrel_response = nrel_data.get_nrel_utility_data(address)
-        result = NRELUtilityResults(nrel_response) 
+        result = NRELUtilityResults(nrel_response)
 
         self.assertEqual(result.utility_name, 'Seattle City Light')
         self.assertEqual(result.address, '2114 Bigelow Ave Seattle, WA, 98109')
         self.assertEqual(result.zipcode, '98109')
         self.assertEqual(result.utility_list, [['Seattle City Light', '16868']])
-        self.assertEqual(result.commercial, float('0.0661'))
-        self.assertEqual(result.industrial, float('0.0573'))
-        self.assertEqual(result.residential, float('0.076'))
+        self.assertEqual(result.commercial, float('0.068'))
+        self.assertEqual(result.industrial, float('0.0595'))
+        self.assertEqual(result.residential, float('0.0775'))
+        self.assertEqual(str(result), 'Seattle City Light')
 
 if __name__ == "__main__":
     unittest.main()
