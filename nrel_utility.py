@@ -46,7 +46,7 @@ class NRELUtilityWrapper(object):
                 params=params,
                 headers=headers,
             )
-            print request.url
+            print (request.url)
         except (ConnectionError, TooManyRedirects, Timeout):
             raise NRELFail
 
@@ -58,11 +58,11 @@ class NRELUtilityWrapper(object):
         try:
             response_json = request.json()
         except ValueError:
-            print "NREL utility data is not a valid json structure"
+            print ("NREL utility data is not a valid json structure")
             raise NRELFail
 
         if not response_json:
-            print "NREL utility API did not return any results"
+            print ("NREL utility API did not return any results")
             raise NRELNoResults
 
         if response_json['errors']:
